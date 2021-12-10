@@ -1,0 +1,42 @@
+.heading{
+    width:100%;
+    font-size:23px;
+    margin:0px;
+}
+body{
+    background-size:cover;
+}
+.volume{
+float:right;
+}
+.volume_div{
+    width:200px;
+    border-radius:100px;
+}
+#volume_id{
+    font-size:20px;
+    margin:15px;
+}
+.speed{
+    float:left;
+    }
+    .speed_div{
+        width:200px;
+        border-radius:100px;
+    }
+    #speed_id{
+        font-size:20px;
+        margin:15px;
+    }
+  .note{
+      font-size:15px;
+      color:black;
+  }  
+  .play_button{
+      width:130px;
+      font-size:25px;
+  }
+  canvas{
+      border:5px solid white;
+      border-radius:20px;
+  }
