@@ -1,5 +1,6 @@
 song = "";
 Scoreleftwrist = 0;
+Scorerightwrist = 0;
 leftWristX = 0;
 leftWristY = 0;
 rightWristX = 0;
@@ -24,6 +25,35 @@ function draw(){
     
     fill("#FF0000");
     stroke("#FF0000");
+    if(Scorerightwrist > 0.2){
+    circle(rightWristX,rightWristY,20);
+    if(rightWristY > 0 && rightWristY <= 100)
+    {
+        document.getElementById("speed_id").innerHTML = "Speed = 0.5x";
+        song.rate(0.5); 
+    }
+    else if(rightWristY > 100 && rightWristY <= 200)
+    {
+        document.getElementById("speed_id").innerHTML = "Speed = 1.0x";
+        song.rate(1.0); 
+    }
+    else if(rightWristY > 200 && rightWristY <= 300)
+    {
+        document.getElementById("speed_id").innerHTML = "Speed = 1.5x";
+        song.rate(1.5); 
+    }
+     else if(rightWristY > 300 && rightWristY <= 400)
+    {
+        document.getElementById("speed_id").innerHTML = "Speed = 2.0x";
+        song.rate(2.0); 
+    }
+     else if(rightWristY > 400)
+    {
+        document.getElementById("speed_id").innerHTML = "Speed = 2.5x";
+        song.rate(2.5); 
+    }
+}
+
     if(Scoreleftwrist > 0.2){
     circle(leftWristX,leftWristY,20);
     Innumber_leftwristY = Number(leftWristY);
@@ -42,7 +72,8 @@ function gotPoses(results){
     if(results.length > 0){
         console.log(results);
         Scoreleftwrist = results[0].pose.keypoints[9].score;
-        console.log("scoreleftwrist = " + Scoreleftwrist);
+        Scorerightwrist = results[0].pose.keypoints[10].score;
+        console.log("scoreleftwrist = " + Scoreleftwrist + " scorerightwrist = " + Scorerightwrist);
         leftWristX = results[0].pose.leftWrist.x;
         leftWristY = results[0].pose.leftWrist.y;
         console.log("leftWristX = " + leftWristX + " leftWristY = " + leftWristY);
